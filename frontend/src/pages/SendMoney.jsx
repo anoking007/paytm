@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+
 import { Avatar } from "../components/Avatar";
 import { Button } from "../components/Button";
 import { Heading } from "../components/Heading";
@@ -28,6 +28,7 @@ export function SendMoney(){
                 Authorization:"Bearer "+localStorage.getItem("token")
             }
         })
+        alert("Transfer successful")
         
     }} label={"Intial Transfer"}></Button>
         </div>
