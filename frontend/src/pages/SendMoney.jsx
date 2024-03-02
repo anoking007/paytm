@@ -7,7 +7,8 @@ import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 export function SendMoney(){
     const[queryParameters]=useSearchParams();
-    const[amount,setAmount]=useState("")
+    const[amount,setAmount]=useState(0)
+    
    
     return(<>
    
@@ -18,16 +19,17 @@ export function SendMoney(){
         <br /><br /><br />
         <Avatar Uname={queryParameters.get("name")} username={queryParameters.get("name")} ></Avatar>
         <InputBox onChange={(e)=>setAmount(e.target.value)} id={"amount"} inputType="number" label={"Amount (in Rs)"} placeholder={"Enter amount"}></InputBox>
-        <Button onClick={ useEffect(()=>{
-        axios.post("http://localhost:3000/api/v1/account/transfer",{
+        <Button onClick={ async ()=>{
+        await axios.post("http://localhost:3000/api/v1/account/transfer",{
             to:queryParameters.get("id"),
-            amount,
+            amount:parseFloat(amount),
         },{
             headers:{
                 Authorization:"Bearer "+localStorage.getItem("token")
             }
         })
-    },[])} label={"Intial Transfer"}></Button>
+        
+    }} label={"Intial Transfer"}></Button>
         </div>
     </div>
     

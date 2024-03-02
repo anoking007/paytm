@@ -29,7 +29,7 @@ export function SignUp(){
                     password
                 })
                 localStorage.setItem("token",response.data.token )
-                navigate('/Dashboard')
+                navigate("/Dashboard?name="+response.data.username)
             }} ></Button>
             <BottomWarning linkTo="Sign in" link="/signin" warningMessage="Already have an account?"></BottomWarning>
 

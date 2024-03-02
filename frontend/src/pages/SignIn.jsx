@@ -24,7 +24,7 @@ export function SignIn(){
                 })
                 
                 localStorage.setItem("token",response.data.token)
-                navigate("/Dashboard")
+                navigate("/Dashboard?name="+response.data.username)
                 
             }} label="Sign In" ></Button>
             <BottomWarning linkTo="Sign Up" link="/signUp" warningMessage="Don't have an account?"></BottomWarning>

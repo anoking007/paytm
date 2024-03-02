@@ -50,6 +50,7 @@ user.post("/signup", async (req, res) => {
     }, JWT_SECRET);
 
     res.json({
+        username:user.firstName,
         message: "User created successfully",
         token: token
     })
@@ -78,6 +79,7 @@ user.post("/signin", async (req, res) => {
         }, JWT_SECRET);
   
         res.json({
+            username:user.firstName,
             token: token
         })
         return;
