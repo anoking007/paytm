@@ -4,6 +4,7 @@ import { Button } from "../components/Button";
 import { Heading } from "../components/Heading";
 import { InputBox } from "../components/InputBox";
 import { useSearchParams } from "react-router-dom";
+import {useState} from "react"
 import axios from "axios";
 export function SendMoney(){
     const[queryParameters]=useSearchParams();
